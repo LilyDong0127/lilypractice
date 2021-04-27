@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>网上购物</title>
+	<style type="text/css">
+		body{
+		font-family: 'Microsoft YaHei';
+		color:#666;
+		font-size:12px;
+	}
+	#banner{
+	margin: 15px 0;
+	text-align:center;
+}
+#banner img{
+	/*调整图片尺寸*/
+	width: 80%;
+	height: 500px;
+	
+}
+	/*顶部条状态*/
+	.header_con{
+		height:29px;
+		background-color: #f7f7f7;
+		border-bottom:1px solid #ddd;
+	}
+	.header{
+		width:1200px;
+		height:29px;
+		margin:0 auto;
+	}
+	
+	.welcome{
+		font:12px/29px 'Microsoft YaHei UI';
+		float: left;
+	}
+	.user_login{
+		height: 29px;
+		line-height: 29px;
+		float: right;
+	}
+	.user_login a{
+		color:#666;
+	}
+	.user_login a:hover{
+		color: #f80;
+	}
+	.search_bar{
+		width:1200px;
+		height:115px;
+		margin:0 auto;
+	}
+	.logo{
+		width:151px;
+		height:59px;
+		margin:29px 0 0 17px;
+	}
+	.search_con{
+		width:616px;
+		height:38px;
+		border:1px solid #d0d0d0;
+		margin:34px 0 0 123px;
+		/*雪碧图的放大镜作背景图*/
+		background:url(../images/icons.png) 10px -335px no-repeat;
+	}
+	.search_con .input_text{
+		width:470px;
+		height:37px;
+		border:0px;
+		margin-left:37px;
+		outline:none;
+	}
+	.search_con .input_btn{
+		width:100px;
+		height:38px;
+		background-color: #d0d0d0;
+		border:0;
+		font:14px/38px 'Microsoft YaHei UI';
+		color:#fff;
+		/*鼠标变成手*/
+		cursor:pointer;
+	}
+	.guest_card{
+		width:200px;
+		height:40px;
+		margin-top:34px;
+	}
+	.card_name{
+		width:158px;
+		height:38px;
+		border:1px solid #ddd;
+		font:14px/38px 'Microsoft YaHei UI';
+		color:#d0d0d0;
+		text-indent:56px;
+		background:url(../images/icons.png) 10px -300px no-repeat #f7f7f7;
+	}
+	.goods_count{
+		width: 40px;
+		height:40px;
+		background-color:#f80;
+		font:bold 18px/40px 'Microsoft YaHei UI';
+		text-align:center;
+		color:#fff;
+	}
+	.navbar_con{
+		height:40px;
+		border-bottom:2px solid #d0d0d0;
+		/*background: red;*/
+	}
+	.navbar{
+		width:1200px;
+		height:40px;
+		margin:0 auto;
+		/*background: red;*/
+	}
+	.subnav_con h1{
+		width:200px;
+		height:40px;
+		background-color: #d0d0d0;
+		font:14px/40px 'Microsoft YaHei UI';
+		text-align:center;
+		color:#fff;
+	}
+	.subnav_con i{
+		width: 11px;
+		height: 7px;
+		background:url(../images/down.png) left center no-repeat;
+		overflow: hidden;
+		display: inline-block;
+	}
+	.navlist{
+		overflow:hidden;
+	}
+	.navlist li{
+		float:left;
+		height:14px;
+		padding:0 25px;
+		border-left:1px solid #666;
+		margin-left:-2px;
+		margin-top:13px;
+	}
+	.submena{
+		width: 1200px;
+		height: 30px;
+		margin: 0 auto;
+		/*background:yellow;*/
+	}
+	.submena a{
+		color:#d0d0d0;
+		line-height: 30px;
+	}
+	
+	.center_con{
+		width: 1200px;
+		height: 350px;
+		margin: 0 auto;
+		/*background: yellow;*/
+	}
+	.center_con .main_menu{
+		width:350px;
+		height:350px;
+		overflow:hidden;
+	}
+	.goods_detail_list{
+		width:730px;
+		height:350px;
+	}
+	.goods_detail_list h3{
+		font-size:24px;
+		line-height:24px;
+		color:#666;
+		font-weight:normal;
+	}
+	.goods_detail_list p{
+		color:#666;
+		line-height:40px;
+	}
+	.prize_bar{
+		height:72px;
+		background-color:#fff5f5;
+		line-height:72px;
+	}
+	.prize_bar .show_prize{
+		font-size:20px;
+		color:#ff3e3e;
+		padding-left:20px
+	}
+	.prize_bar .show_pirze em{
+		font-style:normal;
+		font-size:36px;
+		padding-left:10px
+	}
+	.prize_bar .show_unit{
+		padding-left: 150px;
+	}
+	.goods_num{
+		height: 52px;
+		margin-top: 19px;
+		/*background: yellow;*/
+	}
+	.goods_num .num_name{
+		width:70px;
+		height:52px;
+		line-height:52px;
+	}
+	.goods_num .num_add{
+		width:75px;
+		height:50px;
+		border:1px solid #dddddd;
+	}
+	.goods_num .num_add .num_show{
+		width:49px;
+		height:50px;
+		text-align:center;
+		line-height:50px;
+		border:0px;
+		outline:none;
+		font-size:14px;
+		color:#666;
+	}
+	.goods_num .num_add .add,.goods_num .num_add .minus{
+		width:25px;
+		line-height:25px;
+		text-align:center;
+		border-left:1px solid #ddd;
+		border-bottom:1px solid #ddd;
+		color:#666;
+		font-size:14px;
+	}
+	.goods_num .num_add .minus{
+		border-bottom:0px;
+	}
+	.total{
+		height: 35px;
+		line-height: 35px;
+		margin-top: 25px;
+		/*background: yellow;*/
+	}
+	.total em{
+		font-style:normal;
+		color:#ff3e3e;
+		font-size:18px
+	}
+	.operate_btn{
+		height:40px;
+		margin-top:35px;
+		font-size:0;
+		position:relative;
+	}
+	.operate_btn .buy_btn,.operate_btn .add_cart{
+		display:inline-block;
+		width:178px;
+		height:38px;
+		border:1px solid #c40000;
+		font-size:14px;
+		color:#c40000;
+		line-height:38px;
+		text-align:center;
+		background-color:#ffeded;
+	}
+	.operate_btn .add_cart{
+		background-color:#c40000;
+		color:#fff;
+		margin-left:10px;
+		position:relative;
+		z-index:10;
+	}
+	body,p,h1,h2,h3,h4,h5,h6,ul,dl,dt,form,input{
+		margin:0;
+		padding:0;
+	  }
+	  
+	  ul{
+		list-style:none;
+	  }
+	  a{
+		text-decoration:none;
+	  }
+	  
+	  em{
+		font-style:normal;
+	  }
+	  
+	  img{
+		border:0px;
+	  }
+	  
+	  h1,h2,h3,h4,h5,h6{
+		font-size:100%;
+	  }
+	  .clearfix:before,.clearfix:after{
+		content:"";
+		display:table;
+	  }
+	  .clearfix:after{
+		clear:both;
+	  }
+	  .clearfix{
+		zoom:1;
+	  }
+	  
+	  
+	  .fl{
+		float:left;
+	  }
+	  .fr{
+		float:right;
+	  }
+		
+		</style>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	
+  
+  <body>
+	
+	<!-- 最上面的部分 购物车部分-->
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome">小米网上商城欢迎你</div>
+			<div class="user_login">
+				<a href="log in.html" target="_blank">登录</a>
+				<span>|</span>
+				<a href="login.html" target="_blank">注册</a>
+				<span>|</span>
+				<a href="shopping trolley.html" target="_blank">我的购物车</a>
+				<span>|</span>
+				<a href="">帮助中心</a>
+			</div>
+		</div>
+	</div>
+	<div class="search_bar clearfix">
+		<a href="index.html" class="logo fl" target="_blank"><img src="images/xiaomi.jpg" width="50"></a>
+		<div class="search_con fl">
+			<input type="text" class="input_text fl" placeholder="搜索商品">
+			<input type="button" class="input_btn fr" value="搜索">
+		</div>
+		<div class="guest_card fr">
+			<a href="shopping trolley.html" target="_blank" class="card_name fl">我的购物车</a>
+			<div class="goods_count fl">1</div>
+		</div>
+	</div>
+	<!-- 2.横幅 -->
+	<div id="banner">
+		<!-- 图片轮番播放 -->
+		<img src="images/5.png">
+	</div>
+	<!-- 商品信息栏 -->
+	<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部分类  <i></i></h1>
+			</div>
+			
+		</div>
+	</div>
+    	
+    	
+    	
+    	<!-- 第四部分 导引行 -->
+    	<div align="right">首页>手机>不同手机</div>
+    	
+    	
+    	<!-- 第六部分 图书 -->
+    	<table width="100%" align="center_con">
+		
+			<tr>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+    			</td>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+                <td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+				</td>
+				<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+    		</tr>
+    		<tr>
+    			<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				
+    		</tr>
+    		<tr>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+    			</td>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+                <td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+				</td>
+				<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+    		</tr>
+    		<tr>
+    			<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				
+    		</tr>
+    	</table>
+    	<!-- 第七部分 计算机类 -->
+    	<div class="navbar_con">
+			<div class="navbar clearfix">
+				<div class="subnav_con fl">
+					<h1>电脑类  <i></i></h1>
+				</div>
+				
+			</div>
+		</div>
+    	
+    	
+    	
+    	<!-- 第九部分 图书 -->
+    	<table width="100%" align="middle">
+    		<tr>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+    			</td>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+                <td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+				</td>
+				<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+    		</tr>
+    		<tr>
+    			<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				
+    		</tr>
+    		<tr>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+    			</td>
+    			<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+                <td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+				</td>
+				<td align="center">
+    				<a href="details.html" target="_blank"><img src="images/1.jpg" width="200"/>
+                </td>
+    		</tr>
+    		<tr>
+    			<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				<td align="center">名称：xxx<br/>售价：xxx</td>
+				
+    		</tr>
+    	</table>
+    	<!-- 第十部分 最后 -->
+    	<table width="100%" bgcolor="#5B5B5B">
+    		<tr>
+    			<td rowspan="2">
+    				<img  src="images/xiaomi.jpg" width="100" align=“left”>
+				</td>
+    			<td>CONTACT us</td>
+    		</tr>
+    		<tr>
+    			<td>copyight 2020&copy;PhoneStore All Rights RESERVED</td>
+    		</tr>
+    	</table>
+	</div>
+  </body>
+</html>

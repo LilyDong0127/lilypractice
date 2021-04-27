@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>您的购物车</title>
+<style type="text/css">
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+body{
+    background-image: url(images/2.jpg);
+    background-size: cover;
+    font-family: 'Microsoft YaHei';
+    color:#666;
+    font-size:12px;
+}
+/*顶部条状态*/
+.header_con{
+    height:29px;
+    background-color: #f7f7f7;
+    border-bottom:1px solid #ddd;
+}
+.header{
+    width:1200px;
+    height:29px;
+    margin:0 auto;
+}
+
+.welcome{
+    font:12px/29px 'Microsoft YaHei UI';
+    float: left;
+}
+.user_login{
+	height: 29px;
+	line-height: 29px;
+	float: right;
+}
+.user_login a{
+	color:#666;
+}
+.user_login a:hover{
+	color: #f80;
+}
+.search_bar{
+	width:1200px;
+    height:115px;
+    margin:0 auto;
+}
+.logo{
+	width:151px;
+    height:59px;
+    margin:29px 0 0 17px;
+}
+.search_con{
+	width:616px;
+    height:38px;
+    border:1px solid #d0d0d0;
+    margin:34px 0 0 123px;
+    /*雪碧图的放大镜作背景图*/
+    background:url(../images/icons.png) 10px -335px no-repeat;
+}
+.search_con .input_text{
+    width:470px;
+    height:37px;
+    border:0px;
+    margin-left:37px;
+    outline:none;
+}
+.search_con .input_btn{
+    width:100px;
+    height:38px;
+    background-color: #d0d0d0;
+    border:0;
+    font:14px/38px 'Microsoft YaHei UI';
+    color:#fff;
+    /*鼠标变成手*/
+    cursor:pointer;
+}
+.guest_card{
+	width:200px;
+    height:40px;
+    margin-top:34px;
+}
+.card_name{
+	width:158px;
+    height:38px;
+    border:1px solid #ddd;
+    font:14px/38px 'Microsoft YaHei UI';
+    color:#d0d0d0;
+    text-indent:56px;
+    background:url(../images/icons.png) 10px -300px no-repeat #f7f7f7;
+}
+.goods_count{
+	width: 40px;
+    height:40px;
+    background-color:#f80;
+    font:bold 18px/40px 'Microsoft YaHei UI';
+    text-align:center;
+    color:#fff;
+}
+.navbar_con{
+	height:40px;
+    border-bottom:2px solid #d0d0d0;
+    /*background: red;*/
+}
+.navbar{
+	width:1200px;
+    height:40px;
+    margin:0 auto;
+    /*background: red;*/
+}
+.subnav_con h1{
+	width:200px;
+    height:40px;
+    background-color: #d0d0d0;
+    font:14px/40px 'Microsoft YaHei UI';
+    text-align:center;
+    color:#fff;
+}
+.subnav_con i{
+	width: 11px;
+	height: 7px;
+	background:url(../images/down.png) left center no-repeat;
+	overflow: hidden;
+	display: inline-block;
+}
+.navlist{
+	overflow:hidden;
+}
+.navlist li{
+	float:left;
+    height:14px;
+    padding:0 25px;
+    border-left:1px solid #666;
+    margin-left:-2px;
+    margin-top:13px;
+}
+.submena{
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+    /*background:yellow;*/
+}
+.submena a{
+    color:#d0d0d0;
+    line-height: 30px;
+}
+
+.center_con{
+	width: 1200px;
+	height: 350px;
+	margin: 0 auto;
+	/*background: yellow;*/
+}
+.center_con .main_menu{
+	width:350px;
+    height:350px;
+    overflow:hidden;
+}
+.goods_detail_list{
+    width:730px;
+    height:350px;
+}
+.goods_detail_list h3{
+    font-size:24px;
+    line-height:24px;
+    color:#666;
+    font-weight:normal;
+}
+.goods_detail_list p{
+    color:#666;
+    line-height:40px;
+}
+.prize_bar{
+    height:72px;
+    background-color:#fff5f5;
+    line-height:72px;
+}
+.prize_bar .show_prize{
+    font-size:20px;
+    color:#ff3e3e;
+    padding-left:20px
+}
+.prize_bar .show_pirze em{
+    font-style:normal;
+    font-size:36px;
+    padding-left:10px
+}
+.prize_bar .show_unit{
+    padding-left: 150px;
+}
+.goods_num{
+    height: 52px;
+    margin-top: 19px;
+    /*background: yellow;*/
+}
+.goods_num .num_name{
+    width:70px;
+    height:52px;
+    line-height:52px;
+}
+.goods_num .num_add{
+    width:75px;
+    height:50px;
+    border:1px solid #dddddd;
+}
+.goods_num .num_add .num_show{
+    width:49px;
+    height:50px;
+    text-align:center;
+    line-height:50px;
+    border:0px;
+    outline:none;
+    font-size:14px;
+    color:#666;
+}
+.goods_num .num_add .add,.goods_num .num_add .minus{
+    width:25px;
+    line-height:25px;
+    text-align:center;
+    border-left:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    color:#666;
+    font-size:14px;
+}
+.goods_num .num_add .minus{
+    border-bottom:0px;
+}
+.total{
+    height: 35px;
+    line-height: 35px;
+    margin-top: 25px;
+    /*background: yellow;*/
+}
+.total em{
+    font-style:normal;
+    color:#ff3e3e;
+    font-size:18px
+}
+.operate_btn{
+    height:40px;
+    margin-top:35px;
+    font-size:0;
+    position:relative;
+}
+.operate_btn .buy_btn,.operate_btn .add_cart{
+    display:inline-block;
+    width:178px;
+    height:38px;
+    border:1px solid #c40000;
+    font-size:14px;
+    color:#c40000;
+    line-height:38px;
+    text-align:center;
+    background-color:#ffeded;
+}
+.operate_btn .add_cart{
+    background-color:#c40000;
+    color:#fff;
+    margin-left:10px;
+    position:relative;
+    z-index:10;
+}
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dt,form,input{
+    margin:0;
+    padding:0;
+  }
+  
+  ul{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+  }
+  
+  em{
+    font-style:normal;
+  }
+  
+  img{
+    border:0px;
+  }
+  
+  h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+  }
+  .clearfix:before,.clearfix:after{
+    content:"";
+    display:table;
+  }
+  .clearfix:after{
+    clear:both;
+  }
+  .clearfix{
+    zoom:1;
+  }
+  
+  
+  .fl{
+    float:left;
+  }
+  .fr{
+    float:right;
+  }
+a {
+  text-decoration: none;
+  color: #333;
+}
+.bgc {
+    width: 100%;}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: .1px;
+  font-size: .1em;
+  line-height: 0;
+  clear: both;
+}
+.quantity-selector {
+  margin: 0 auto;
+  width: 8.571rem;
+  line-height: 30px;
+  border: 1px solid #d1d6e4;
+  border-radius: 3px;
+}
+.quantity-selector .reduce, 
+.quantity-selector .add {
+  float: left;
+  width: 33.33%;
+  border-right: 1px solid #d1d6e4;
+  text-align: center;
+  cursor: pointer;
+}
+.quantity-selector .number {
+  float: left;
+  width: 33.33%;
+  height: 30px;
+  border: none;
+  padding-left: 10px;
+  text-align: center;
+}
+.quantity-selector .add {
+  border-left: 1px solid #d1d6e4;
+  border-right: none;
+}
+.quantity-selector .disable {
+  color: #d2d2d2;
+  cursor: default;
+}
+ 
+label {
+  cursor: pointer;
+}
+ 
+.choose-all {
+  margin-left: 20px;
+}
+ 
+/*店铺开始*/
+.store-item {
+  width: 1000px;
+  margin: 30px auto;
+}
+.store-item th {
+  height: 50px;
+  background: #d2d2d2;
+  -webkit-text-stroke: 1px #c46e19;
+  font-size: 18px;
+}
+.store-item td {
+  height: 60px;
+  text-align: center;
+}
+.cal-store-box {
+  text-align: right;
+}
+.store-footer {
+  width: 600px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*店铺结束*/
+</style>
+</head>
+<body>
+    <!-- 最上面的部分 购物车部分-->
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome">小米网上商城欢迎你</div>
+			<div class="user_login">
+				<a href="log in.html" target="_blank">登录</a>
+				<span>|</span>
+				<a href="login.html" target="_blank">注册</a>
+				<span>|</span>
+				<a href="shopping trolley.html" target="_blank">我的购物车</a>
+				<span>|</span>
+				<a href="">帮助中心</a>
+			</div>
+		</div>
+	</div>
+	<div class="search_bar clearfix">
+		<a href="index.html" class="logo fl" target="_blank"><img src="images/xiaomi.jpg" width="50"></a>
+		<div class="search_con fl">
+			<input type="text" class="input_text fl" placeholder="搜索商品">
+			<input type="button" class="input_btn fr" value="搜索">
+		</div>
+		<div class="guest_card fr">
+			<a href="shopping trolley.html" target="_blank" class="card_name fl">我的购物车</a>
+			<div class="goods_count fl">1</div>
+		</div>
+	</div>
+	<!-- 商品信息栏 -->
+	<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>您的购物车 <i></i></h1>
+			</div>
+			
+		</div>
+	</div>
+    	
+    	
+    	
+    	<!-- 第四部分 导引行 -->
+    	<div align="right">首页>手机>不同手机</div>
+    	
+    	
+<div class="store-item" v-for="(index1, item) in goodsObj"> 
+    
+    <p>
+    <span v-html="item.name"></span>
+    <label class="choose-all">
+      <input type="checkbox" name="all" v-on:click="chooseShopGoods(index1)" v-model="item.checked" />
+      <span>全选</span>
+    </label>
+  </p>
+  <table class="store-item">
+    <col width="10%"></col>
+    <col width="15%"></col>
+    <col width="15%"></col>
+    <col width="10%"></col>
+    <col width="40%"></col>
+    <col width="10%"></col>
+    <thead class="thead">
+      <tr>
+        <th>选择</th>
+        <th>商品</th>
+        <th>单价</th>
+        <th>运费</th>
+        <th>数量</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(index, data) in item.list">
+        <td>
+          <input type="checkbox" name="all" v-model="data.checked" v-on:click="choose(index1, index)" />
+        </td>
+        <td>
+          <p><span v-html="data.name"></span></p>
+        </td>
+        <td v-html="(data.price).toFixed(2)"></td>
+        <td v-html="(data.fare).toFixed(2)"></td>
+        <td>
+          <div class="quantity-selector clearfix">
+            <span class="reduce" v-on:click="numChange(index1, $index, -1)" v-bind:class="{ 'disable' : data.num==1 }">－</span>
+            <input type="number" v-bind:value="data.num" class="number" v-bind:data-realStock="data.realStock" v-on:keyUp="numEntry(index1, $index)" v-on:keyDown="numEntry(index1, $index)" v-model="data.num"/>
+            <span class="add" v-on:click="numChange(index1, $index, 1)" v-bind:class="{ 'disable' : data.num==data.realStock }">＋</span>
+          </div>
+        </td>
+        <td>
+          <a href="javascript:;" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" v-on:click="delGoods(index1, index)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="cal-store-box">
+    <p>店铺总运费: <span v-html="calEveryFare(index1)"></span></p>
+    <p>店铺商品总金额: <span v-html="calEveryStore(index1)"></span></p>
+  </div>
+</div>
+ 
+<div class="store-footer">
+  <label>
+    <input type="checkbox" v-on:click="chooseAllGoods($event)" v-model="allChecked" />
+    <span>全选</span>
+  </label>
+  <div class="cal-box">
+    <p>商品总运费:<span v-html="totalFare.toFixed(2)"></span></p>
+    <p>商品总金额:<span v-html="totalMoney.toFixed(2)"></span></p>
+  </div>
+</div>
+ 
+<script src="http://cdn.bootcss.com/vue/1.0.7/vue.js"></script>
+<script>
+var goodsObj = [
+  {
+    name : '小米官方店',
+    checked : false,
+    list : [
+      {
+        name : '手机',
+        price : 2300.00,
+        realStock : 10,
+        fare : 1.5,
+        num : 0,
+        checked : false,
+      },
+ 
+      {
+        name : '电脑',
+        price : 21000.00,
+        realStock : 2,
+        fare : 1.5,
+        num : 0,
+        checked : false,
+      },
+ 
+      {
+        name : '文具',
+        price : 88.00,
+        realStock : 8,
+        fare : 1.5,
+        num : 0,
+        checked : false,
+      }
+    ]
+  },
+ 
+  {
+    name : '小米官方店',
+    checked : false,
+    list : [
+      {
+        name : '手机',
+        price : 1660.00,
+        realStock : 10,
+        fare : 2,
+        num : 0,
+        checked : false,
+      },
+ 
+      {
+        name : '电脑',
+        price : 18800.00,
+        realStock : 2,
+        fare : 1.5,
+        num : 0,
+        checked : false,
+      },
+ 
+      {
+        name : '文具',
+        price : 299.00,
+        realStock : 1,
+        fare : 3,
+        num : 0,
+        checked : false,
+      }
+    ]
+  },
+ 
+  
+];
+var vue = new Vue({
+  el : 'body',
+  data : {
+    goodsObj : goodsObj,
+    totalMoney : 0,
+    totalFare : 0,
+    allChecked : false
+  },
+  ready : function() {},
+  methods : {
+ 
+    // 全部商品全选
+    chooseAllGoods : function() {
+      var flag = true;
+      if ( this.allChecked ) {
+        flag = false;
+      }
+      for ( var i = 0, len = this.goodsObj.length; i < len; i++ ) {
+        this.goodsObj[i]['checked'] = flag;
+        var list = this.goodsObj[i]['list'];
+        for ( var k = 0, len1 = list.length; k < len1; k++ ) {
+          list[k]['checked'] = flag;
+        }
+      }
+      this.allChecked = !this.allChecked;
+      this.calTotalMoney();
+      this.calTotalFare();
+    },
+ 
+    // 每个店铺全选
+    chooseShopGoods : function( index) {
+      var list = this.goodsObj[index]['list'],
+        len = list.length;
+      if ( this.goodsObj[index]['checked'] ) {
+        for (var i = 0; i < len; i++ ) {
+          list[i]['checked'] = false;
+        }
+      } else {
+        for (var i = 0; i < len; i++ ) {
+          list[i]['checked'] = true;
+        }
+      }
+      this.goodsObj[index]['checked'] = !this.goodsObj[index]['checked'];
+ 
+      // 判断是否选择所有商品的全选
+      this.isChooseAll();
+ 
+      this.cal(index);
+    },
+ 
+    // 单个选择
+    choose : function( index1, index) {
+      var list = this.goodsObj[index1]['list'],
+        len = list.length;
+      if ( list[index]['checked'] ) {
+        this.goodsObj[index1]['checked'] = false;
+        this.allChecked = false;
+        list[index]['checked'] = !list[index]['checked'];
+      } else {
+        list[index]['checked'] = !list[index]['checked'];
+ 
+        // 判断是否选择当前店铺的全选
+        var flag = true;
+        for (var i = 0; i < len; i++ ) {
+          if ( list[i]['checked'] == false ) {
+            flag = false;
+            break;
+          }
+        }
+        flag == true ? this.goodsObj[index1]['checked'] = true : this.goodsObj[index1]['checked'] = false;
+      }
+ 
+      // 判断是否选择所有商品的全选
+      this.isChooseAll();
+ 
+      this.cal(index);
+    },
+ 
+    // 判断是否选择所有商品的全选
+    isChooseAll : function() {
+      var flag1 = true;
+      for ( var i = 0, len = this.goodsObj.length; i < len; i++ ) {
+        if ( this.goodsObj[i]['checked'] == false ) {
+          flag1 = false;
+          break;
+        }
+      }
+      flag1 == true ? this.allChecked = true : this.allChecked = false;
+    },
+ 
+    // 商品数量控制
+    numChange : function(index1, index, numChange) {
+      var goods = this.goodsObj[index1]['list'][index],
+        oThis = this;
+      if ( numChange == 1 ) {
+        goods.num++;
+      } else if ( numChange == -1 ) {
+        goods.num--;
+      }
+ 
+      if ( goods.num <= 1 ) {
+        goods.num = 1;
+      } 
+ 
+      if ( goods.num >= goods.realStock ) {
+        goods.num = goods.realStock;
+      }
+ 
+      this.cal(index);
+    },
+ 
+    // 用户填写容错处理
+    numEntry : function(index1, index) {
+      var goods = this.goodsObj[index1]['list'][index];
+      if ( goods.num <=1 ) {
+        goods.num = 1;
+      }
+ 
+      if ( goods.num > goods.realStock ) {
+        goods.num = goods.realStock;
+      }
+      this.cal(index);
+    },
+ 
+    // 计算每个店铺的商品总额
+    calEveryStore : function(index) {
+      var everyStoreMoney = 0,
+        list = this.goodsObj[index]['list'];
+      list.forEach(function(item, index, arr) {
+        if ( list[index]['checked'] ) { 
+          everyStoreMoney += parseFloat(item.price) * parseFloat(item.num);
+        }
+      });
+      return everyStoreMoney.toFixed(2);
+    },
+ 
+    // 计算每个店铺的运费总额
+    calEveryFare : function(index) {
+      var everyStoreFare = 0,
+        list = this.goodsObj[index]['list'];
+      list.forEach(function(item, index, arr) {
+        if ( list[index]['checked'] ) { 
+          everyStoreFare += parseFloat(item.fare) * parseFloat(item.num);
+        }
+      });
+      return everyStoreFare.toFixed(2);
+    },
+ 
+    // 计算商品总金额
+    calTotalMoney : function () {
+      var oThis = this;
+      this.totalMoney = 0;
+      for ( var i = 0, len = this.goodsObj.length; i < len; i++ ) {
+        var list = this.goodsObj[i]['list'];
+        list.forEach(function(item, index, arr) {
+          if ( list[index]['checked'] ) {
+            oThis.totalMoney += parseFloat(item.price) * parseFloat(item.num);
+          }
+        });
+      }
+    },
+ 
+    // 计算商品总运费
+    calTotalFare : function () {
+      var oThis = this;
+      this.totalFare = 0;
+      for ( var i = 0, len = this.goodsObj.length; i < len; i++ ) {
+        var list = this.goodsObj[i]['list'];
+        list.forEach(function(item, index, arr) {
+          if ( list[index]['checked'] ) {
+            oThis.totalFare += parseFloat(item.fare) * parseFloat(item.num);
+          }
+        });
+      }
+    },
+ 
+    // 计算方法集合
+    cal : function(index) {
+      this.calEveryStore(index);
+      this.calEveryFare(index);
+      this.calTotalMoney();
+      this.calTotalFare();
+    },
+ 
+    // 删除操作
+    delGoods : function(index1, index) {
+      console.log(index1);
+      console.log(index);
+      this.goodsObj[index1]['list'].splice(index, 1);
+      this.cal(index);
+    }
+     
+  }
+})
+</script>
+</body>
+</html>
